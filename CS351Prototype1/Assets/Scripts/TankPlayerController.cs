@@ -20,7 +20,7 @@ public class TankPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -40,8 +40,16 @@ public class TankPlayerController : MonoBehaviour
         transform.Translate(Vector2.right * Time.deltaTime * speed * verticalInput);
 
         //rotate player with horizontal input
-        transform.Rotate(Vector3.back, turnSpeed * Time.deltaTime * horizontalInput);
+        //transform.Rotate(Vector3.back, turnSpeed * Time.deltaTime * horizontalInput);
 
-
+        //rotate player with horizontal input, but reverse rotation direction when moving backwards
+        if (verticalInput < 0)
+        {
+            transform.Rotate(Vector3.back, -turnSpeed * Time.deltaTime * horizontalInput);
+        }
+        else
+        {
+            transform.Rotate(Vector3.back, turnSpeed * Time.deltaTime * horizontalInput);
+        }
     }
 }
