@@ -23,7 +23,7 @@ public class ScoreManager : MonoBehaviour
     
     void Awake()
     {
-        scoreToWin = 10;
+        scoreToWin = 15;
     }
 
 
