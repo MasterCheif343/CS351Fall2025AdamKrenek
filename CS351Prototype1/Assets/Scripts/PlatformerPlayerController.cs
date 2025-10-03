@@ -30,16 +30,23 @@ public class PlatformerPlayerController : MonoBehaviour
     private bool isGrounded;
 
     private float horizontalInput;
+
+    // set this in inspector
+    public AudioClip jumpSound;
+
+    //audiosource to play sound effects
+    private AudioSource playerAudio;
     // Start is called before the first frame update
     void Start()
     {
+        playerAudio = GetComponent<AudioSource>();
         //Get the Rigidbody2D component attached to the game object
         rb = GetComponent<Rigidbody2D>();
 
         //ensure the ground check variable is assigned
         if(groundCheck == null)
         {
-            Debug.LogError("groundCheck not assigned to player controller!!");
+            Debug.LogError("GroundCheck not assigned to the player controller!");
         }
     }
 
@@ -52,7 +59,10 @@ public class PlatformerPlayerController : MonoBehaviour
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             //apply an upward force for jumping
-            rb.velocity = new Vector2(rb.velocity.x * moveSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
+            //play jump sound effect
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
 
         }
     }
@@ -62,5 +72,17 @@ public class PlatformerPlayerController : MonoBehaviour
 
         //check if player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        //TODO: optionally we can add aniamtions later
+
+        //ensure the player is facing the direction of movement
+        if (horizontalInput > 0)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f); //facing right
+        }
+        else if (horizontalInput < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f); //facing left
+        }
     }
 }
