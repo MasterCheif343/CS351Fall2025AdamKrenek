@@ -239,7 +239,6 @@ GameObject:
   - component: {fileID: 6587598084692363973}
   - component: {fileID: 8413728698236502364}
   - component: {fileID: 184817869}
-  - component: {fileID: 184817870}
   m_Layer: 0
   m_Name: TestDummyV2
   m_TagString: Player
@@ -370,17 +369,3 @@ MonoBehaviour:
     m_Bits: 64
   groundCheck: {fileID: 785744081}
   groundCheckRadius: 0.2
---- !u!114 &184817870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5107001488561804877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78e4fa3480bde704497b80db25905bed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
-  bulletPrefab: {fileID: 0}
