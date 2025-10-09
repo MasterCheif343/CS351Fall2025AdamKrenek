@@ -1,23 +1,28 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int playerHealth = 100;
-    public int damage = 10;
-    void OnTriggerEnter2D(Collider2D hitInfo)
+    public int damage = 2;
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Enemy2 enemy = hitInfo.GetComponent<Enemy2>();
-        if (enemy != null)
+        if (collision.gameObject.tag == "Enemy")
         {
-          TakeDamage(damage);
-           
+            TakeDamage();
+
         }
     }
 
-    public void TakeDamage(int damage)
+
+
+    public void TakeDamage()
     {
+       
          playerHealth -= damage;
 
         if (playerHealth <= 0)
