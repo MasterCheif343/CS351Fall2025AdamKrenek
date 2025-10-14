@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class AIChase : MonoBehaviour
@@ -7,6 +8,7 @@ public class AIChase : MonoBehaviour
     public GameObject player;
     public float speed;
     public float distanceBetween;
+    public float lowestY;
 
     private float distance;
     // Start is called before the first frame update
@@ -28,6 +30,11 @@ public class AIChase : MonoBehaviour
         if(distance < distanceBetween)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+        }
+
+        if(transform.position.y < lowestY)
+        {
+            Destroy(gameObject);
         }
     }
 }

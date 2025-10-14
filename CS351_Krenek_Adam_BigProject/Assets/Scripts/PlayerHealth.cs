@@ -6,9 +6,16 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int playerHealth = 100;
+    public int currentHealth;
+    public int maxHealth = 100;
     public int damage = 2;
 
+    public HealthBar healthBar;
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -23,9 +30,10 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage()
     {
        
-         playerHealth -= damage;
+         currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
 
-        if (playerHealth <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -35,9 +43,4 @@ public class PlayerHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
