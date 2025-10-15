@@ -7,48 +7,49 @@ using UnityEngine.SceneManagement;
 public class PlayerLoss : MonoBehaviour
 {
     public TMP_Text textbox;
-    PlayerHealth currentHealth;
+    public PlayerHealth death;
     public static bool gameOver;
-    public static bool won;
     public float lowestY;
+    public float reachThreashold = 0.1f;
+    public Vector2 targetPosition;
     // Start is called before the first frame update
     void Start()
     {
         gameOver = false;
-        won = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentHealth = GetComponent<PlayerHealth>();
-        if(currentHealth == null)
+        death = GetComponent<PlayerHealth>();
+        if(death != false && death.death)
         {
             gameOver = true;
-            won = false;
-           textbox.text = "You lose! \n Press R to try again";
+            
+           textbox.text = "You died! \n Press R to try again";
         }
         if(transform.position.y < lowestY){
             gameOver = true;
         }
-        //lose when player is too low or falls through pitfall
+       
         
         if (!gameOver)
         {
             gameOver = false;
-            textbox.text = "Start: ";
+            textbox.text = "GO!  --> ";
         }
         if (gameOver)
         {
-            if (won)
+            float distance = Vector2.Distance(transform.position, targetPosition);
+            if (distance < reachThreashold)
             {
+                Debug.Log("The end has been reached!");
+                enabled = false;
                 gameOver = true;
                 textbox.text = "You win! \n Press R to try again!";
             }
-            else
-            {
-                textbox.text = "You lose! \n Press R to try again";
-            }
+            
             if (Input.GetKeyDown(KeyCode.R))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);

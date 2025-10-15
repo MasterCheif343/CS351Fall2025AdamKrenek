@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public int maxHealth = 100;
     public int damage = 2;
+    public bool death = false;
 
     public HealthBar healthBar;
     private void Start()
@@ -40,7 +41,9 @@ public class PlayerHealth : MonoBehaviour
     }
     void Die()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 0.2f);
+        death = true;
+        enabled = false;
     }
 
 }

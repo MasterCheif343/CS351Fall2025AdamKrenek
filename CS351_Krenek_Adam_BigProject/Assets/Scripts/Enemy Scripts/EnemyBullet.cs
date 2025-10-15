@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     private Rigidbody2D rb;
     public float force;
     private float timer;
@@ -19,7 +19,7 @@ public class EnemyBullet : MonoBehaviour
         rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
 
         float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0,0,rot);
+        transform.rotation = Quaternion.Euler(0,0,rot + 90);
 
      
     }
@@ -30,7 +30,7 @@ public class EnemyBullet : MonoBehaviour
         timer += Time.deltaTime;
         if(timer > 10)
         {
-            Destroy(rb);
+            Destroy(gameObject);
         }
     }
 
@@ -38,9 +38,10 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerHealth>().currentHealth -= 10;
-            Destroy(gameObject);
+            other.gameObject.GetComponent<PlayerHealth>().currentHealth -= 15;
+            Destroy(gameObject, 1f);
         }
  
     }
+
 }
