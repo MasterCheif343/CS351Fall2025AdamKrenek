@@ -94909,6 +94909,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6655388015415574, guid: 60e0b47da0f02b145aae8cb85b5c141d, type: 3}
   m_PrefabInstance: {fileID: 6655387905413534}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2037481609
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037481608}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5685304c19866ed468f8759085c400d3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!82 &2037481615
 AudioSource:
   m_ObjectHideFlags: 0
@@ -95443,6 +95464,10 @@ PrefabInstance:
       propertyPath: jumpSound
       value: 
       objectReference: {fileID: 8300000, guid: f63453e3d19a7314091a5388bd6c6fa7, type: 3}
+    - target: {fileID: 6655388015415573, guid: 60e0b47da0f02b145aae8cb85b5c141d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6367560908665664636, guid: f44f22fa4a9b3794abdadb3855dee473, type: 3}
     - target: {fileID: 6655388015415574, guid: 60e0b47da0f02b145aae8cb85b5c141d, type: 3}
       propertyPath: m_Name
       value: PlatformerPlayer
