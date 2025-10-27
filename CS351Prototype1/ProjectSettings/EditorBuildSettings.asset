@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Platformer Start.unity
-    guid: 03ff8384c62406e4892f547f513ea4be
+    path: Assets/Scenes/Platformer Anim Finished.unity
+    guid: 5cd64132f9460794199a2c38c5dd70db
   m_configObjects: {}
