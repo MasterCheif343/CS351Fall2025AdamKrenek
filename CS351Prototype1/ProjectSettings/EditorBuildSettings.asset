@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tank Player Finish.unity
-    guid: 9220b6209971d35408bf8ad7cd320edf
+    path: Assets/Scenes/Platformer Anim Finished.unity
+    guid: 5cd64132f9460794199a2c38c5dd70db
   m_configObjects: {}

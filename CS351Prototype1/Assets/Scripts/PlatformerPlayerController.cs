@@ -30,16 +30,32 @@ public class PlatformerPlayerController : MonoBehaviour
     private bool isGrounded;
 
     private float horizontalInput;
+
+    // set this in inspector
+    public AudioClip jumpSound;
+
+    //audiosource to play sound effects
+    private AudioSource playerAudio;
+
+    //Reference to Animatior
+    private Animator animator;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        //Set Referenece to Animator
+        animator = GetComponent<Animator>();
+
+
+        playerAudio = GetComponent<AudioSource>();
         //Get the Rigidbody2D component attached to the game object
         rb = GetComponent<Rigidbody2D>();
 
         //ensure the ground check variable is assigned
         if(groundCheck == null)
         {
-            Debug.LogError("groundCheck not assigned to player controller!!");
+            Debug.LogError("GroundCheck not assigned to the player controller!");
         }
     }
 
@@ -52,7 +68,10 @@ public class PlatformerPlayerController : MonoBehaviour
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             //apply an upward force for jumping
-            rb.velocity = new Vector2(rb.velocity.x * moveSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
+            //play jump sound effect
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
 
         }
     }
@@ -60,7 +79,27 @@ public class PlatformerPlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
 
+        //set animator parameter xVelocityAbs to the absoulte value of x velocity
+        animator.SetFloat("xVelocityAbs", Mathf.Abs(rb.velocity.x));
+
+        //set animator parameter yVelocity to y velocity
+        animator.SetFloat("yVelocity", rb.velocity.y);
+
         //check if player is grounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        //set animator parameter onGround to isGrounded
+        animator.SetBool("onGround", isGrounded);
+
+        //ensure the player is facing the direction of movement
+        if (horizontalInput > 0)
+        {
+            transform.rotation = Quaternion.Euler(0,0,0) ; //facing right
+        }
+        else if (horizontalInput < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0); //facing left
+        }
+      
     }
 }
