@@ -17,6 +17,9 @@ public class Projectile : MonoBehaviour
     //Damage of bullet with deafult value of 20
     public int damage = 20;
 
+    //Impact effect of bullet
+    public GameObject impactEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,10 @@ public class Projectile : MonoBehaviour
         }
         //If the opbject that was hit is not the player
         if(hitInfo.gameObject.tag != "Player") {
+
+            //instantiate the impact effect
+            Instantiate(impactEffect, transform.position, Quaternion.identity);
+
             //Destroy projectile
             Destroy(gameObject);
         }
