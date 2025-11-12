@@ -17,12 +17,6 @@ public class TankPlayerController : MonoBehaviour
     public float verticalInput;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -34,7 +28,7 @@ public class TankPlayerController : MonoBehaviour
 
         // transform.Translate(Vector3.right * Time.deltaTime * speed);
 
-        //Get input in Uodate()
+        //Get input in Update()
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(Vector2.right * Time.deltaTime * speed * verticalInput);
