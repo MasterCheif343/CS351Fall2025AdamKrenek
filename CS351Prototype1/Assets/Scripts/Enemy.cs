@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     //Prefab to spawn when enemy dies
     public GameObject deathEffect;
 
+    //damage enemy deals to player
+    public int damage = 10;
+
     private void Start()
     {
         //find healthbar in children of enemy
@@ -51,5 +54,27 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    //Damage player when they collide with enemy
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //Get the player health script from player object
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+          
+            //check if player health script is null
+            if(playerHealth == null)
+            {
+                Debug.LogError("Player Health script not found on player");
+                return;
+            }
+
+            //damage player
+            playerHealth.TakeDamage(damage);
+
+            //Knockback the player
+            playerHealth.Knockback(transform.position);
+        }
+    }
 
 }
