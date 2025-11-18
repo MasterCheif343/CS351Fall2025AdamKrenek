@@ -2173,6 +2173,8 @@ GameObject:
   - component: {fileID: 506862605}
   - component: {fileID: 506862608}
   - component: {fileID: 506862609}
+  - component: {fileID: 506862610}
+  - component: {fileID: 506862611}
   m_Layer: 0
   m_Name: CrabEnemy
   m_TagString: Untagged
@@ -2308,6 +2310,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &506862610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506862604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 536455357fa5cd44d8ed018b5c40b139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseRange: 4
+  enemyMoveSpeed: 1.5
+--- !u!50 &506862611
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506862604}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &545410101
 GameObject:
   m_ObjectHideFlags: 0
@@ -95435,7 +95472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   healthBar: {fileID: 1834762920}
-  knockbackForce: 8
+  knockbackForce: 5
   playerDeathEffect: {fileID: 6520687243239303739, guid: fed9e8cdb9d5efa4980d51b4aaeba256, type: 3}
   hitRecoveryTime: 1
   playerHitSound: {fileID: 8300000, guid: c79d2fc2e9d313a488f4721c016e447b, type: 3}
@@ -95950,11 +95987,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6655388015415570, guid: 60e0b47da0f02b145aae8cb85b5c141d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 390.6
+      value: 389.38
       objectReference: {fileID: 0}
     - target: {fileID: 6655388015415570, guid: 60e0b47da0f02b145aae8cb85b5c141d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 129.4
+      value: 128.57
       objectReference: {fileID: 0}
     - target: {fileID: 6655388015415570, guid: 60e0b47da0f02b145aae8cb85b5c141d, type: 3}
       propertyPath: m_LocalPosition.z
