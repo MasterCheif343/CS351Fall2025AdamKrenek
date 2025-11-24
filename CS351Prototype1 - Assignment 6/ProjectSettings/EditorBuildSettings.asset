@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Platformer Anim Finished.unity
-    guid: 5cd64132f9460794199a2c38c5dd70db
+    path: Assets/Scenes/Shooting Platformer Start.unity
+    guid: b362872af09e9a84d9fc5a3156ad581e
   m_configObjects: {}
