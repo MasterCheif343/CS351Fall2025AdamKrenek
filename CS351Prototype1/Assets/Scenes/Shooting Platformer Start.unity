@@ -2344,7 +2344,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &545410101
 GameObject:
   m_ObjectHideFlags: 0
@@ -96033,6 +96033,14 @@ PrefabInstance:
       propertyPath: jumpSound
       value: 
       objectReference: {fileID: 8300000, guid: f63453e3d19a7314091a5388bd6c6fa7, type: 3}
+    - target: {fileID: 6655388015415573, guid: 60e0b47da0f02b145aae8cb85b5c141d, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6655388015415573, guid: 60e0b47da0f02b145aae8cb85b5c141d, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6655388015415573, guid: 60e0b47da0f02b145aae8cb85b5c141d, type: 3}
       propertyPath: m_Sprite
       value: 
