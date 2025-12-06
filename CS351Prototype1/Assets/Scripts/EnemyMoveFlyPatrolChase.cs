@@ -32,7 +32,7 @@ public class EnemyMoveFlyPatrolChase : MonoBehaviour
     void Start()
     {
         //find player
-        player = GameObject.FindWithTag("player");
+        player = GameObject.FindWithTag("Player");
 
         //get rigidbody component of enemy
         rb = GetComponent<Rigidbody2D>();
@@ -125,7 +125,7 @@ public class EnemyMoveFlyPatrolChase : MonoBehaviour
     void MoveTowardsTarget()
     {
         //calculate direction towards target
-        Vector2 direction = target.transform.forward - transform.position;
+        Vector2 direction = (target.transform.position - transform.position).normalized;
 
         //Normalize direction
         direction.Normalize();
@@ -154,7 +154,7 @@ public class EnemyMoveFlyPatrolChase : MonoBehaviour
     {
         if(patrolPoints != null)
         {
-            Gizmos.color = Color.yellow;
+            Gizmos.color = Color.red;
             foreach (GameObject point in patrolPoints)
             {
                 Gizmos.DrawWireSphere(point.transform.position, 0.5f);
