@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   deathEffect: {fileID: 7001066242598918596, guid: a21bf2dbb48e0e84eb6e0579ebaf259b, type: 3}
-  damage: 20
+  damage: 10
 --- !u!95 &4692576058152311581
 Animator:
   serializedVersion: 5

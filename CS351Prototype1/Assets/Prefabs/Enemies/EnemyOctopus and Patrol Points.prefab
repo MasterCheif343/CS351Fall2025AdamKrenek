@@ -151,9 +151,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc4614a8f58cf2f419fcc48c38b2e1f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 125
   deathEffect: {fileID: 7001066242598918596, guid: a21bf2dbb48e0e84eb6e0579ebaf259b, type: 3}
-  damage: 10
+  damage: 20
 --- !u!50 &3555290530182094080
 Rigidbody2D:
   serializedVersion: 4
@@ -218,8 +218,8 @@ MonoBehaviour:
   - {fileID: 3555290530147743278}
   - {fileID: 3555290531928215305}
   - {fileID: 3555290532165566591}
-  speed: 2
-  chaseRange: 2.5
+  speed: 4
+  chaseRange: 3.5
   currentState: 0
   target: {fileID: 0}
 --- !u!1 &3555290530505688395
@@ -456,7 +456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 45295495101265439}
   m_Layer: 0
-  m_Name: EnemyOctopi and Patrol Points
+  m_Name: EnemyOctopus and Patrol Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
